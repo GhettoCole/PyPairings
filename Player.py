@@ -28,3 +28,16 @@ class DutchPlayer(Player):
     
     def __repr__(self):
         return super().__repr__() + f'\t{self.score} pts\t{self.float_status}\t{self.opponents}\t{self.colour_history}'
+
+    
+class AmericanPlayer(Player):
+     def __init__(self, name: str, title, rating: int, rating_type, tie_breaks: Iterable, score=0, float_status=None,
+                 opponents=None, colour_history=None):
+        super().__init__(name, title, rating, rating_type, tie_breaks, score)
+        
+        self.float_status = float_status
+        self.opponents = list(opponents) if opponents is not None else list()
+        self.colour_history = list(colour_history) if colour_history is not None else list()
+    
+    def __repr__(self):
+        return super().__repr__() + f'\t{self.score} pts\t{self.float_status}\t{self.opponents}\t{self.colour_history}'
